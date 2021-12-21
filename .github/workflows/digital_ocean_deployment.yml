@@ -1,0 +1,19 @@
+# This is a basic workflow that is manually triggered
+
+name: digital_ocean_deployment
+on:
+  push:
+    branches: [main]
+  
+jobs:
+  build:
+    runs-on: self_hosted
+    
+    steps:
+      - uses: actions/checkout@main
+      - name: Create .env
+        run: echo 'MYSQL_PASSWORD=${}' > .env
+        
+      - name: Building Docker
+        run: docker-compose up -d
+  
