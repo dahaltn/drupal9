@@ -1,0 +1,5 @@
+vendor/
+.env
+mysql
+drupal/*
+.idea
