@@ -22,17 +22,15 @@ services:
     networks:
       - dahal_network
   web:
-    build:
-      context: ./
-      dockerfile: ./Dockerfile
+    image: drupal:latest
     restart: always
     container_name: dahal_drupal9
     networks:
       - dahal_network
     # command: composer install --ignore-platform-reqs
-    volumes:
-      - ./drupal:/opt/drupal
-      - ./config:/opt/drupal/config
+#    volumes:
+#      - ./drupal:/opt/drupal
+#      - ./config:/opt/drupal/config
     environment:
       - COMPOSER_MEMORY_LIMIT=-1
     labels:
