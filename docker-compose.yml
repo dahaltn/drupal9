@@ -16,7 +16,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=dahal_network"
       - "traefik.http.routers.traefik-secure.entrypoints=websecure"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.pixcode.co.uk`)"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.pixceli.com`)"
       - "traefik.http.routers.traefik-secure.service=api@internal"
       - "traefik.http.routers.traefik-secure.middlewares=user-auth@file"
     networks:
@@ -37,7 +37,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=dahal_network"
       - "traefik.http.routers.web-secure.entrypoints=websecure"
-      - "traefik.http.routers.web-secure.rule=Host(`radius.pixcode.co.uk`)"
+      - "traefik.http.routers.web-secure.rule=Host(`radius.pixceli.com`)"
   db:
     image: mysql:5.7
     # command: --default-authentication-plugin=mysql_native_password
@@ -60,7 +60,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=dahal_network"
       - "traefik.http.routers.adminer-secure.entrypoints=websecure"
-      - "traefik.http.routers.adminer-secure.rule=Host(`adminer.pixcode.co.uk`)"
+      - "traefik.http.routers.adminer-secure.rule=Host(`adminer.pixceli.com`)"
     environment:
       ADMINER_PLUGINS: 'tables-filter tinymce'
     networks:
