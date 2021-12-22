@@ -37,7 +37,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=dahal_network"
       - "traefik.http.routers.web-secure.entrypoints=websecure"
-      - "traefik.http.routers.web-secure.rule=Host(`radius.pixceli.com`)"
+      - "traefik.http.routers.web-secure.rule=Host(`drupal.pixceli.com`)"
   db:
     image: mysql:5.7
     # command: --default-authentication-plugin=mysql_native_password
