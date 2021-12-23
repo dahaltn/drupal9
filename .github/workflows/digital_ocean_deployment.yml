@@ -22,6 +22,7 @@ jobs:
 
       - name: change Permission
         run: |
+          rm traefik-data/acme.json
           touch traefik-data/acme.json
           chmod 600 traefik-data/acme.json
         
