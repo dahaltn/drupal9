@@ -13,6 +13,9 @@ jobs:
       - uses: actions/checkout@main
       - name: Create .env
         run: echo 'MYSQL_PASSWORD=${}' > .env
+
+      - name: change Permission
+        run: chmod 600 traefik-data/acme.json
         
       - name: Building Docker
         run: docker-compose up -d
