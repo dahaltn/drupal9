@@ -30,9 +30,9 @@ services:
     networks:
       - dahal_network
     # command: composer install --ignore-platform-reqs
-#    volumes:
-#      - ./drupal:/opt/drupal
-#      - ./config:/opt/drupal/config
+    volumes:
+      - ./drupal:/opt/drupal
+      - ./config:/opt/drupal/config
     environment:
       - COMPOSER_MEMORY_LIMIT=-1
     labels:
