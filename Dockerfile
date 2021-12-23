@@ -29,7 +29,7 @@ COPY init.sh /init.sh
 RUN chmod +x /init.sh
 
 
-WORKDIR /var/www/html
+#WORKDIR /var/www/html
 #COPY sshd_config /etc/ssh/
 #COPY ./drupal /var/www/html
 #COPY ./composer.json /opt/drupal/composer.json
