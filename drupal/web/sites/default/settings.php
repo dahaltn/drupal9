@@ -89,10 +89,10 @@
  * @endcode
  */
 $databases['default']['default'] = [
-  'database' => 'drupal9',
-  'username' => 'root',
-  'password' => 'newnew',
-  'host' => 'db',
+  'database' => getenv('DB_DATABASE'),
+  'username' => getenv('DB_USER'),
+  'password' => getenv('DB_PASS'),
+  'host' => getenv('DB_HOST'),
   'port' => '3306',
   'driver' => 'mysql',
   'prefix' => '',
