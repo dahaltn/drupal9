@@ -1,5 +1,5 @@
 vendor/
 .env
 mysql
-drupal/*
+drupal/vendor
 .idea
