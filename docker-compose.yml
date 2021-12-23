@@ -22,7 +22,9 @@ services:
     networks:
       - dahal_network
   web:
-    image: drupal:latest
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
     restart: always
     container_name: dahal_drupal9
     networks:
