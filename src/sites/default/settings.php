@@ -89,10 +89,10 @@
  * @endcode
  */
 $databases['default']['default'] = [
-  'database' => getenv('MYSQL_DATABASE'),
-  'username' => getenv('MYSQL_USER'),
-  'password' => getenv('MYSQL_PASS'),
-  'host' => getenv('MYSQL_HOST'),
+  'database' => getenv('DB_DATABASE'),
+  'username' => getenv('DB_USER'),
+  'password' => getenv('DB_PASS'),
+  'host' => getenv('DB_HOST'),
   'port' => '3306',
   'driver' => 'mysql',
   'prefix' => '',

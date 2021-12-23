@@ -16,7 +16,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=dahal_network"
       - "traefik.http.routers.traefik-secure.entrypoints=websecure"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.pixceli.com`)"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.pixcode.co.uk`)"
       - "traefik.http.routers.traefik-secure.service=api@internal"
       - "traefik.http.routers.traefik-secure.middlewares=user-auth@file"
     networks:
@@ -35,11 +35,12 @@ services:
       - ./config:/opt/drupal/config
     environment:
       - COMPOSER_MEMORY_LIMIT=-1
+
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=dahal_network"
       - "traefik.http.routers.web-secure.entrypoints=websecure"
-      - "traefik.http.routers.web-secure.rule=Host(`drupal.pixceli.com`)"
+      - "traefik.http.routers.web-secure.rule=Host(`drupal.pixcode.co.uk`)"
   db:
     image: mysql:5.7
     # command: --default-authentication-plugin=mysql_native_password
@@ -50,10 +51,10 @@ services:
     networks:
       - dahal_network
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PASS}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_DATABASE}
     volumes:
-      - ${MYSQL_DIR}:/var/lib/mysql
+      - ${DB_DIR}:/var/lib/mysql
   adminer:
     image: adminer:latest
     restart: always
@@ -62,7 +63,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=dahal_network"
       - "traefik.http.routers.adminer-secure.entrypoints=websecure"
-      - "traefik.http.routers.adminer-secure.rule=Host(`adminer.pixceli.com`)"
+      - "traefik.http.routers.adminer-secure.rule=Host(`adminer.pixcode.co.uk`)"
     environment:
       ADMINER_PLUGINS: 'tables-filter tinymce'
     networks:

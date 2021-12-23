@@ -14,11 +14,11 @@ jobs:
       - name: Create .env
         run: |
           touch .env
-          echo MYSQL_USER=${{secrets.MYSQL_USER}} >> .env
-          echo MYSQL_PASS=${{secrets.MYSQL_PASS}} >> .env
-          echo MYSQL_DIR=${{secrets.MYSQL_DIR}} >> .env
-          echo MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}} >> .env
-          echo MYSQL_HOST=${{secrets.MYSQL_HOST}} >> .env
+          echo DB_USER=${{secrets.DB_USER}} >> .env
+          echo DB_PASS=${{secrets.DB_PASS}} >> .env
+          echo DB_DIR=${{secrets.DB_DIR}} >> .env
+          echo DB_DATABASE=${{secrets.DB_DATABASE}} >> .env
+          echo DB_HOST=${{secrets.DB_HOST}} >> .env
 
       - name: change Permission
         run: chmod 600 traefik-data/acme.json
