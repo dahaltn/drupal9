@@ -29,7 +29,7 @@ certificatesResolvers:
   letsencrypt:
     acme:
       email: dahaltn@gmail.com
-      storage: /ssl/acme.json
+      storage: acme.json
       keyType: EC384
       httpChallenge:
         entryPoint: web
