@@ -48,10 +48,10 @@ services:
     networks:
       - dahal_network
     environment:
-      MYSQL_ROOT_PASSWORD: 'newnew'
-      MYSQL_DATABASE: drupal9
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASS}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ${MYSQL_DIR}:/var/lib/mysql
   adminer:
     image: adminer:latest
     restart: always
