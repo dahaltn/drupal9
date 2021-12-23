@@ -12,8 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Create .env
-        run: echo 'MYSQL_PASSWORD=${MYSQL_PASSWORD}' \n\
-            'MYSQL_DIR=${MYSQL_DIR}' > .env
+        run: |
+          touch .env
+          echo MYSQL_USER=${{MYSQL_USER}} >> .env
+          echo MYSQL_PASS=${{MYSQL_PASS}} >> .env
+          echo MYSQL_DIR=${{MYSQL_DIR}} >> .env
+          echo MYSQL_DATABASE=${{MYSQL_DATABASE}} >> .env
+          echo MYSQL_HOST=${{MYSQL_HOST}} >> .env
 
       - name: change Permission
         run: chmod 600 traefik-data/acme.json
