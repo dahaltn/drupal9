@@ -36,5 +36,5 @@ jobs:
 
       - name: Instelling Drupal
         run: |
-          docker-compose exec web composer install
-          docker-compose exec web composer id -Y
+          docker-compose exec web composer install --working-dir ../
+          docker-compose exec web drush cim -y

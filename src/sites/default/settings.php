@@ -229,7 +229,7 @@ $databases['default']['default'] = [
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-$settings['config_sync_directory'] = '../config';
+$settings['config_sync_directory'] = '../config/default/sync';
 
 /**
  * Settings:
@@ -713,6 +713,16 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
+
+$settings['trusted_host_patterns'] = [
+   '^local\.pixceli$',
+   '^pixceli\.com$',
+   '^pixcode\.co\.uk$',
+   '^localhost$',
+   '^127\.0\.0\.1$',
+   '^.+\.pixceli\.com$',
+   '^.+\.pixcode\.co\.uk$',
+ ];
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
