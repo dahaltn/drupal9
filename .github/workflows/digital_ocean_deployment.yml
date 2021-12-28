@@ -19,12 +19,22 @@ jobs:
           echo DB_DIR=${{secrets.DB_DIR}} >> .env
           echo DB_DATABASE=${{secrets.DB_DATABASE}} >> .env
           echo DB_HOST=${{secrets.DB_HOST}} >> .env
+          echo SITE_URL=${{secrets.SITE_URL}} >> .env
+          echo ADMINER_URL=${{secrets.ADMINER_URL}} >> .env
+          echo TRAEFIK_URL=${{secrets.TRAEFIK_URL}} >> .env
 
       - name: change Permission
         run: |
+          cp src/sites/default/settings.php drupal/web/sites/default
           chmod 600 traefik-data/acme.json
         
       - name: Building Docker
         run: |
+          alias dc=docker-compose
           docker-compose down
           docker-compose up -d
+
+      - name: Instelling Drupal
+        run: |
+          docker-compose exec web composer install
+          docker-compose exec web composer id -Y
