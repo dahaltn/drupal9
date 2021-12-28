@@ -34,7 +34,8 @@ jobs:
           docker-compose down
           docker-compose up -d
 
-      - name: Instelling Drupal
-        run: |
-          docker-compose exec web composer install --working-dir ../
-          docker-compose exec web drush cim -y
+      - name: Composer install
+        run: docker-compose exec web composer install --ignore-platform-reqs --working-dir ../
+
+      - name: Drush config import
+        run: docker-compose exec web drush cim -y
