@@ -35,7 +35,7 @@ jobs:
           docker-compose up -d
 
       - name: Composer install
-        run: docker-compose exec web composer install --ignore-platform-reqs --working-dir ../
+        run: docker-compose exec web composer install --working-dir ../
 
       - name: Drush config import
         run: docker-compose exec web drush cim -y
