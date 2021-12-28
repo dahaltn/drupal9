@@ -22,7 +22,6 @@ jobs:
 
       - name: change Permission
         run: |
-          touch traefik-data/acme.json
           chmod 600 traefik-data/acme.json
         
       - name: Building Docker

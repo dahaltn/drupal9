@@ -16,7 +16,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=dahal_network"
       - "traefik.http.routers.traefik-secure.entrypoints=websecure"
-      - "traefik.http.routers.traefik-secure.rule=Host(`route.pixceli.com`)"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.pixceli.com`)"
       - "traefik.http.routers.traefik-secure.service=api@internal"
       - "traefik.http.routers.traefik-secure.middlewares=user-auth@file"
     networks:
@@ -68,7 +68,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=dahal_network"
       - "traefik.http.routers.adminer-secure.entrypoints=websecure"
-      - "traefik.http.routers.adminer-secure.rule=Host(`db.pixceli.com`)"
+      - "traefik.http.routers.adminer-secure.rule=Host(`adminer.pixceli.com`)"
     environment:
       ADMINER_PLUGINS: 'tables-filter tinymce'
     networks:
