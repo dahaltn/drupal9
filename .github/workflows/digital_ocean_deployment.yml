@@ -26,6 +26,8 @@ jobs:
       - name: change Permission
         run: |
           cp src/sites/default/settings.php drupal/web/sites/default
+          chmod 755 drupal/web/sites/default
+          chmod 644 drupal/web/sites/default/settings.php
           chmod 600 traefik-data/acme.json
         
       - name: Building Docker
