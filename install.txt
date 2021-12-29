@@ -1,1 +1,2 @@
 Installation guide 
+Git workflow and Actions
