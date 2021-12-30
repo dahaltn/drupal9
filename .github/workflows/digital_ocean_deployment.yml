@@ -38,6 +38,4 @@ jobs:
           script: |
             chown -R dahaltn:dahaltn /var/www
             chmod +x /var/www/build.sh
-            cd /var/www
-            docker-compose up -d
-            docker-compose exec web composer install
+            docker exec web composer install -n
