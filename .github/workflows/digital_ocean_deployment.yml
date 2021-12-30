@@ -1,41 +1,25 @@
 # This is a basic workflow that is manually triggered
 
-name: digital_ocean_deployment
+name: tej_test_workflow
 on:
   push:
-    branches: [main]
-  
+    branches: [test]
+
 jobs:
   Build:
-    runs-on: self-hosted
-    container:
-      image: drupal:latest
+    runs-on: ubuntu-latest
+    container: drupal:latest
     steps:
-      - uses: actions/checkout@main
-      - name: Create .env
-        run: |
-          touch .env
-          echo DB_USER=${{secrets.DB_USER}} >> .env
-          echo DB_PASS=${{secrets.DB_PASS}} >> .env
-          echo DB_DIR=${{secrets.DB_DIR}} >> .env
-          echo DB_DATABASE=${{secrets.DB_DATABASE}} >> .env
-          echo DB_HOST=${{secrets.DB_HOST}} >> .env
-          echo SITE_URL=${{secrets.SITE_URL}} >> .env
-          echo ADMINER_URL=${{secrets.ADMINER_URL}} >> .env
-          echo TRAEFIK_URL=${{secrets.TRAEFIK_URL}} >> .env
-
-      - name: change Permission
-        run: |
-          cp src/sites/default/settings.php drupal/web/sites/default
-          chmod 755 drupal/web/sites/default
-          chmod 644 drupal/web/sites/default/settings.php
-          chmod 600 traefik-data/acme.json
-        
-      - name: Building Docker
-        run: |
-          alias dc=docker-compose
-          docker-compose down
-          docker-compose up -d
+      - name: checking inside container
+        run |
+        ls -la /var/www/html
+#      - uses: actions/checkout@main
+#
+#      - name: Building Docker
+#        run: |
+#          alias dc=docker-compose
+#          docker-compose down
+#          docker-compose up -d
 
 #      - name: Composer install
 #        run: docker-compose exec web composer install --working-dir ../
