@@ -38,4 +38,4 @@ jobs:
           script: |
             chown -R dahaltn:dahaltn /var/www
             chmod +x /var/www/build.sh
-            docker exec web composer install -n
+            docker exec dahal_drupal9 composer install -n
