@@ -37,6 +37,6 @@ jobs:
           port: 22
           script: |
             chown -R dahaltn:dahaltn /var/www
-            docker exec dahal_drupal9 composer install -n
-            docker exec dahal_drupal9 composer id -n
+            docker exec dahal_drupal9 composer install
+#            docker exec dahal_drupal9 composer id -n
 #            docker exec dahal_drupal9 drush cim -y
