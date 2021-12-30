@@ -10,7 +10,7 @@ if [ ! -f "$FILE" ]; then
     cp src/sites/default/settings.php drupal/web/sites/default/settings.php
 fi
 
-docker-compose exec web composer install --ignore-platform-reqs -n
+#docker-compose exec web composer install --ignore-platform-reqs -n
 
 #docker-compose exec web drush cim -y
 #docker-compose composer id -n
