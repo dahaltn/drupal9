@@ -2,7 +2,7 @@
 
 FILE=.env
 if [ ! -f "$FILE" ]; then
-    cp .env.example .env
+    cp ${PWD}/.env.example ${PWD}/.env
 fi
 
 docker-compose up -d
