@@ -31,11 +31,15 @@ jobs:
           chmod 644 drupal/web/sites/default/settings.php
           chmod 600 traefik-data/acme.json
         
-      - name: Building Docker
+      - name: Copy files
         run: |
-          alias dc=docker-compose
-          docker-compose down
-          docker-compose up -d
+          cp -r . ~/html
+
+#      - name: Building Docker
+#        run: |
+#          alias dc=docker-compose
+#          docker-compose down
+#          docker-compose up -d
 
 #      - name: Composer install
 #        run: docker-compose exec web composer install --working-dir ../
