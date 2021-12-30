@@ -33,7 +33,8 @@ jobs:
         
       - name: Copy files
         run: |
-          cp -r drupal/* /home/dahaltn/html/
+          chmod +x /home/dahaltn/test.sh
+          /home/dahaltn/test.sh
 
 #      - name: Building Docker
 #        run: |
