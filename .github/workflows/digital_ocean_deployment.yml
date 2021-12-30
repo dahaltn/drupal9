@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: tej_test_workflow
+name: digital_ocean_deployment
 on:
   push:
     branches: [test]
