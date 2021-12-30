@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checking out
+        if: success() || failure()
         uses: actions/checkout@v2
         with:
           ref: main
@@ -25,6 +26,7 @@ jobs:
           port: 22
           source: .
           target: /var/www
+
 
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
