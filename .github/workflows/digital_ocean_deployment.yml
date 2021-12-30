@@ -16,6 +16,6 @@ jobs:
         with:
           host: 138.68.117.43
           username: root
-          key: ${{ secrets.DIGI_PW }}
+          password: ${{ secrets.DIGI_PW }}
           port: 22
           script: sh /home/dahaltn/test.sh
