@@ -38,5 +38,3 @@ jobs:
           script: |
             chown -R dahaltn:dahaltn /var/www
             chmod +x /var/www/build.sh
-            pwd
-#            docker-compose exec web composer install --ignore-platform-reqs -n
