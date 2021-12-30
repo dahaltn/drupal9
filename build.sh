@@ -1,8 +1,8 @@
 #!/bin/sh
-
+cd /var/www
 FILE=.env
 if [ ! -f "$FILE" ]; then
-    cp ${PWD}/.env.example ${PWD}/.env
+    cp .env.example .env
 fi
 
 docker-compose up -d
