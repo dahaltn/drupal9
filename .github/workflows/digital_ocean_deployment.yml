@@ -39,6 +39,4 @@ jobs:
             chown -R dahaltn:dahaltn /var/www
             chmod +x /var/www/build.sh
             sh /var/www/build.sh
-#            cd /var/www
-#            docker-compose up -d
             docker-compose exec web composer install --ignore-platform-reqs -n
