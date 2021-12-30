@@ -1,16 +1,14 @@
 #!/bin/sh
-cd /var/www
+cd $PWD
+#cd /var/www
 FILE=.env
 if [ ! -f "$FILE" ]; then
     cp .env.example .env
 fi
 
-FILE=drupal/web/sites/default/settings.php
+FILE=$PWD/drupal/web/sites/default/settings.php
 if [ ! -f "$FILE" ]; then
-    cp src/sites/default/settings.php drupal/web/sites/default/settings.php
+    cp $PWD/src/sites/default/settings.php drupal/web/sites/default/settings.php
 fi
-
-#docker-compose exec web composer install --ignore-platform-reqs -n
-
-#docker-compose exec web drush cim -y
-#docker-compose composer id -n
+#    docker exec dahal_drupal9 composer install -n
+#    docker exec dahal_drupal9 composer id -n

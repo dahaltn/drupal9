@@ -16,15 +16,16 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "consolidation/robo": "3.*",
+        "drupal/belgrade": "2.0.0-beta1",
+        "drupal/commerce": "2.28",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
-        "drush/drush": "^10.6",
-        "drupal/commerce": "2.28",
-        "drupal/inline_entity_form": "^1.0-rc9",
-        "drupal/belgrade": "2.0.0-beta1",
+        "drupal/gin": "3.0-alpha37",
         "drupal/gin_toolbar": "1.0-beta20",
-        "drupal/gin": "3.0-alpha37"
+        "drupal/inline_entity_form": "^1.0-rc9",
+        "drush/drush": "^10.6"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -32,7 +33,12 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true
+        }
     },
     "extra": {
         "drupal-scaffold": {
