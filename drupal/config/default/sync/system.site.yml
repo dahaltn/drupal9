@@ -4,7 +4,7 @@ langcode: en
 uuid: a62fcc77-b546-4b37-a865-99028e3ea1ba
 name: 'Tej Drupal 9 test'
 mail: admin@example.com
-slogan: ''
+slogan: 'Awesome Drupal 9 project'
 page:
   403: ''
   404: ''
