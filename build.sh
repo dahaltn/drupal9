@@ -34,7 +34,7 @@ if [ ! "$(docker ps -q -f name=mysql_mysql_database)" ]; then
     cd /var/www
     docker-compose up -d
 else
-  docker exec dahal_drupal9 composer install -n
+  docker exec dahal_drupal9 composer install
   docker exec dahal_drupal9 drush cim -y
 fi
 #   DB_NAME=drupal9
