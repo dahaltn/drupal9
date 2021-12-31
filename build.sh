@@ -13,6 +13,8 @@ if [ ! "$(docker ps -q -f name=mysql_mysql_database)" ]; then
     # run containers
     cd /var/www
     docker-compose up -d
+else
+  docker exec dahal_drupal9 composer install -n
 fi
 
 FILE=drupal/web/sites/default/settings.php
@@ -27,6 +29,11 @@ if [ ! -d "$FILE_FOLDER" ]; then
    chown -R www-data:www-data drupal/web/sites/default
    chmod 755 drupal/web/sites/default
    chmod -R 755 $FILE_FOLDER
+fi
+
+CONFIG_FOLDER=drupal/config/default/sync
+if [  -d "$CONFIG_FOLDER" ]; then
+   chown -R www-data:www-data $CONFIG_FOLDER
 fi
 
 #   DB_NAME=drupal9
