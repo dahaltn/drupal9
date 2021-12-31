@@ -5,11 +5,20 @@ if [ ! -f "$FILE" ]; then
     cp .env.example .env
 fi
 
+if [ ! "$(docker ps -q -f name=mysql_mysql_database)" ]; then
+    if [ "$(docker ps -aq -f status=exited -f name=mysql_database)" ]; then
+        # cleanup
+        docker rm mysql_database
+    fi
+    # run containers
+    cd /var/www
+    docker-compose up -d
+fi
+
 FILE=drupal/web/sites/default/settings.php
 if [ ! -f "$FILE" ]; then
     cp src/sites/default/settings.php $FILE
 fi
-     chmod 644 $FILE
 
 FILE_FOLDER=drupal/web/sites/default/files
 
@@ -18,10 +27,6 @@ if [ ! -d "$FILE_FOLDER" ]; then
    chown -R www-data:www-data drupal/web/sites/default
    chmod 755 drupal/web/sites/default
    chmod -R 755 $FILE_FOLDER
- else
-    chmod 755 drupal/web/sites/default
-    chown -R www-data:www-data drupal/web/sites/default
-    chmod -R 755 $FILE_FOLDER
 fi
 
 #   DB_NAME=drupal9
