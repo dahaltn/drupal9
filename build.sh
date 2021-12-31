@@ -25,8 +25,8 @@ if [ ! -d "$FILE_FOLDER" ]; then
 fi
 
 #   DB_NAME=drupal9
-#   docker exec mysql_database /usr/bin/mysqldump -u root --password=pass $DB_NAME > drupal9_initial_setup_backup.sql
-#   cat > drupal9_backup.sql | docker exec -i mysql_database /usr/bin/mysql -u root --password=pass $DB_NAME
+#   docker exec mysql_database /usr/bin/mysqldump -u root --password=newnew drupal9 > drupal9_initial_setup_backup.sql
+#   docker exec -i mysql_database mysql -u root --password=pass $DB_NAME < drupal9_initial_setup_backup.sql
 
 #    docker exec dahal_drupal9 composer install -n
 #    docker exec dahal_drupal9 composer id -n

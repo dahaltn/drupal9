@@ -23,7 +23,7 @@ services:
       - dahal_network
   web:
     build:
-      context: ./
+      context: ./drupal
       dockerfile: ./Dockerfile
     restart: always
     container_name: dahal_drupal9
@@ -34,7 +34,6 @@ services:
     # command: composer install --ignore-platform-reqs
     volumes:
       - ./drupal:/opt/drupal
-      - ./config:/opt/drupal/config
     environment:
       - COMPOSER_MEMORY_LIMIT=-1
       - DB_DIR=${DB_DIR}
