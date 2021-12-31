@@ -24,5 +24,9 @@ if [ ! -d "$FILE_FOLDER" ]; then
     chmod -R 755 $FILE_FOLDER
 fi
 
+#   DB_NAME=drupal9
+#   docker exec mysql_database /usr/bin/mysqldump -u root --password=pass $DB_NAME > drupal9_backup.sql
+#   cat > drupal9_backup.sql | docker exec -i mysql_database /usr/bin/mysql -u root --password=pass $DB_NAME
+
 #    docker exec dahal_drupal9 composer install -n
 #    docker exec dahal_drupal9 composer id -n

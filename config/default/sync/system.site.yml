@@ -1,10 +1,10 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
-uuid: c45ac653-bc60-49ff-8cc6-9f36ddb78373
+uuid: a62fcc77-b546-4b37-a865-99028e3ea1ba
 name: 'Tej Drupal 9 test'
 mail: admin@example.com
-slogan: 'hello new slogan'
+slogan: ''
 page:
   403: ''
   404: ''
