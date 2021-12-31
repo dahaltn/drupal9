@@ -36,7 +36,10 @@ jobs:
           password: ${{ secrets.SERVER_PW }}
           port: 22
           script: |
-            docker exec dahal_drupal9 composer install
+            cd ${{ secrets.SETUP_FOLDER }}
+            chmod +x build.sh
+            ./build.sh
+#            docker exec dahal_drupal9 composer install
 
 #            chown -R dahaltn:dahaltn /var/www/drupal
 #            docker stop dahal_drupal9
