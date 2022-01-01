@@ -34,10 +34,10 @@ if [  -d "$CONFIG_FOLDER" ]; then
    chown -R www-data:www-data $CONFIG_FOLDER
 fi
 
-if [ ! "$(docker ps -q -f name=mysql_mysql_database)" ]; then
-    if [ "$(docker ps -aq -f status=exited -f name=mysql_database)" ]; then
+if [ ! "$(docker ps -q -f name=dahal_drupal9)" ] || [ ! "$(docker ps -q -f name=mysql_database)" ]; then
+    if [ "$(docker ps -aq -f status=exited -f name=dahal_drupal9)" ]; then
         # cleanup
-        docker rm mysql_database
+        docker rm dahal_drupal9
     fi
     # run containers
     docker-compose up -d
