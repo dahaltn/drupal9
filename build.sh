@@ -1,10 +1,17 @@
 #!/bin/sh
 
-FILE=.env
-if [ ! -f "$FILE" ]; then
+ENV_FILE=.env
+if [ ! -f "$ENV_FILE" ]; then
     cp .env.example .env
 fi
 
+ACME_JSON=traefik-data/acme.json
+if [ -f "$ACME_JSON" ]; then
+  if [ $(stat -c "%a" "$ACME_JSON") != "600" ]
+  then
+    chmod 600 $ACME_JSON
+  fi
+fi
 
 FILE=drupal/web/sites/default/settings.php
 if [ ! -f "$FILE" ]; then
