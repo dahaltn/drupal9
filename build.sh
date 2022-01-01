@@ -11,6 +11,8 @@ if [ -f "$ACME_JSON" ]; then
   then
     chmod 600 $ACME_JSON
   fi
+else
+ touch $ACME_JSON && chmod 600 $ACME_JSON
 fi
 
 FILE=drupal/web/sites/default/settings.php
@@ -38,7 +40,6 @@ if [ ! "$(docker ps -q -f name=mysql_mysql_database)" ]; then
         docker rm mysql_database
     fi
     # run containers
-    cd /var/www
     docker-compose up -d
 else
   docker exec dahal_drupal9 composer install
