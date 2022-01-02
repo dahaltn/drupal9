@@ -34,7 +34,7 @@ services:
     # command: composer install --ignore-platform-reqs
     volumes:
       - ./drupal:/opt/drupal
-      - ./php:/usr/local/etc/php
+      - ./php/php-development.ini:/usr/local/etc/php/php.ini
     environment:
       - COMPOSER_MEMORY_LIMIT=-1
       - DB_DIR=${DB_DIR}

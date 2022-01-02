@@ -46,10 +46,10 @@ if [ ! "$(docker ps -q -f name=dahal_drupal9)" ] || [ ! "$(docker ps -q -f name=
     docker network create dahal_network
   fi
   # run containers from prod compose file.
-  docker-compose -f docker-compose-prod.yml up -d
+  docker-compose -f docker-compose-prod.yml up --build -d
 else
   docker exec dahal_drupal9 composer install
-  docker exec dahal_drupal9 drush cim -y
+#  docker exec dahal_drupal9 drush cim -y
 fi
 #   DB_NAME=drupal9
 #   docker exec mysql_database /usr/bin/mysqldump -u root --password=newnew drupal9 > drupal9_initial_setup_backup.sql
