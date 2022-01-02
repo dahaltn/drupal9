@@ -1,46 +1,52 @@
 #!/bin/sh
 
+# Create a environment file from example.
 ENV_FILE=.env
 if [ ! -f "$ENV_FILE" ]; then
-    cp .env.example .env
+  cp .env.example .env
 fi
 
+# Check the acme.json ssl certificate file.
 ACME_JSON=traefik-data/acme.json
 if [ -f "$ACME_JSON" ]; then
-  if [ $(stat -c "%a" "$ACME_JSON") != "600" ]
-  then
+  if [ $(stat -c "%a" "$ACME_JSON") != "600" ]; then
     chmod 600 $ACME_JSON
   fi
 else
- touch $ACME_JSON && chmod 600 $ACME_JSON
+  touch $ACME_JSON && chmod 600 $ACME_JSON
 fi
 
+# check & create the settings.php file from src folder.
 FILE=drupal/web/sites/default/settings.php
 if [ ! -f "$FILE" ]; then
-    cp src/sites/default/settings.php $FILE
+  cp src/sites/default/settings.php $FILE
 fi
 
 FILE_FOLDER=drupal/web/sites/default/files
 
 if [ ! -d "$FILE_FOLDER" ]; then
-   mkdir -p $FILE_FOLDER && chown -R dahaltn:dahaltn $FILE_FOLDER
-   chown -R www-data:www-data drupal/web/sites/default
-   chmod 755 drupal/web/sites/default
-   chmod -R 755 $FILE_FOLDER
+  mkdir -p $FILE_FOLDER && chown -R dahaltn:dahaltn $FILE_FOLDER
+  chown -R www-data:www-data drupal/web/sites/default
+  chmod 755 drupal/web/sites/default
+  chmod -R 755 $FILE_FOLDER
 fi
 
 CONFIG_FOLDER=drupal/config/default/sync
-if [  -d "$CONFIG_FOLDER" ]; then
-   chown -R www-data:www-data $CONFIG_FOLDER
+if [ -d "$CONFIG_FOLDER" ]; then
+  chown -R www-data:www-data $CONFIG_FOLDER
 fi
 
 if [ ! "$(docker ps -q -f name=dahal_drupal9)" ] || [ ! "$(docker ps -q -f name=mysql_database)" ]; then
-    if [ "$(docker ps -aq -f status=exited -f name=dahal_drupal9)" ]; then
-        # cleanup
-        docker rm dahal_drupal9
-    fi
-    # run containers
-    docker-compose -f docker-compose-prod.yml up -d
+  if [ "$(docker ps -aq -f status=exited -f name=dahal_drupal9)" ]; then
+    # cleanup
+    docker rm dahal_drupal9
+  fi
+
+  if [ ! "$(docker network ls -q -f name=dahal_network)" ]; then
+    docker network create dahal_network
+  fi
+  # run containers from prod compose file.
+  docker-compose -f docker-compose-prod.yml up -d
 else
   docker exec dahal_drupal9 composer install
   docker exec dahal_drupal9 drush cim -y
