@@ -3,3 +3,4 @@ vendor/
 mysql
 drupal/vendor
 .idea
+php/conf.d
