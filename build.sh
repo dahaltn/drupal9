@@ -40,7 +40,7 @@ if [ ! "$(docker ps -q -f name=dahal_drupal9)" ] || [ ! "$(docker ps -q -f name=
         docker rm dahal_drupal9
     fi
     # run containers
-    docker-compose up -d
+    docker-compose up docker-compose-prod.yml -d
 else
   docker exec dahal_drupal9 composer install
   docker exec dahal_drupal9 drush cim -y
