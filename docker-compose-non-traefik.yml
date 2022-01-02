@@ -4,6 +4,7 @@ services:
     build:
       context: ./drupal
       dockerfile: ./Dockerfile
+    image: dahaltn/drupal9_dahal:latest
     restart: always
     container_name: dahal_drupal9
     depends_on:
@@ -15,6 +16,7 @@ services:
     - 443:443
     volumes:
       - ./drupal:/opt/drupal
+      - ./php:/usr/local/etc/php
     environment:
       - COMPOSER_MEMORY_LIMIT=-1
       - DB_DIR=${DB_DIR}
