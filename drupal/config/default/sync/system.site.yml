@@ -2,9 +2,9 @@ _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
 uuid: a62fcc77-b546-4b37-a865-99028e3ea1ba
-name: 'Tej Drupal 9 test'
-mail: admin@example.com
-slogan: 'Awesome Drupal 9 project'
+name: Pixceli
+mail: dahaltn@gmail.com
+slogan: 'Coding is fun'
 page:
   403: ''
   404: ''
